@@ -11,12 +11,13 @@ import java.util.List;
  * 
  */
 @Entity
+@Table(name = "ksiazka")
 @NamedQuery(name="Ksiazka.findAll", query="SELECT k FROM Ksiazka k")
 public class Ksiazka implements Serializable {
 	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(unique = true, nullable = true)
 	private int ID_ksiazka;
 
 	private String autor;
@@ -38,11 +39,11 @@ public class Ksiazka implements Serializable {
 	public Ksiazka() {
 	}
 
-	public int getID_ksiazka() {
+	public Integer getID_ksiazka() {
 		return this.ID_ksiazka;
 	}
 
-	public void setID_ksiazka(int ID_ksiazka) {
+	public void setID_ksiazka(Integer ID_ksiazka) {
 		this.ID_ksiazka = ID_ksiazka;
 	}
 

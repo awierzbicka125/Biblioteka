@@ -13,10 +13,12 @@ import java.util.List;
 @NamedQuery(name="Uzytkownik.findAll", query="SELECT u FROM Uzytkownik u")
 public class Uzytkownik implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
+	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int ID_uzytkownik;
+	private Integer ID_uzytkownik;
 
 	private String haslo;
 
@@ -44,11 +46,11 @@ public class Uzytkownik implements Serializable {
 	public Uzytkownik() {
 	}
 
-	public int getID_uzytkownik() {
+	public Integer getID_uzytkownik() {
 		return this.ID_uzytkownik;
 	}
 
-	public void setID_uzytkownik(int ID_uzytkownik) {
+	public void setID_uzytkownik(Integer ID_uzytkownik) {
 		this.ID_uzytkownik = ID_uzytkownik;
 	}
 

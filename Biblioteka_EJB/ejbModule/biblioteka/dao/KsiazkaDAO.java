@@ -38,7 +38,7 @@ public class KsiazkaDAO {
 	public List<Ksiazka> getFullList() {
 		List<Ksiazka> list = null;
 
-		Query query = em.createQuery("select p from Ksiazka p");
+		Query query = em.createQuery("select k from Ksiazka k");
 
 		try {
 			list = query.getResultList();
@@ -53,9 +53,10 @@ public class KsiazkaDAO {
 		List<Ksiazka> list = null;
 
 		// 1. Build query string with parameters
-		String select = "select p ";
-		String from = "from Ksiazka p ";
+		String select = "select k ";
+		String from = "from Ksiazka k ";
 		String where = "";
+		String orderby = "order by k.tytul asc";
 		
 
 		// search for surname
@@ -66,13 +67,13 @@ public class KsiazkaDAO {
 			} else {
 				where += "and ";
 			}
-			where += "p.tytul like :tytul ";
+			where += "k.tytul like :tytul ";
 		}
 		
 		// ... other parameters ... 
 
 		// 2. Create query object
-		Query query = em.createQuery(select + from + where);
+		Query query = em.createQuery(select + from + where + orderby);
 
 		// 3. Set configured parameters
 		if (tytul != null) {
